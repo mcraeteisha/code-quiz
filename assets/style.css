@@ -1,0 +1,16 @@
+ul {
+    list-style: none;
+}
+
+hr {
+    border: 1px solid #47d0bd;
+    width: 75%;
+    float: left;
+}
+
+.custom-h3 {
+    margin-top: 10px;
+    clear: both;
+    float: left;
+    font-style: italic;
+}
