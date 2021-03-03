@@ -14,3 +14,13 @@ hr {
     float: left;
     font-style: italic;
 }
+
+.custom-btn {
+    border: 1px solid #47d0bd;
+    color: #47d0bd;
+}
+
+.custom-btn:hover{
+    background-color: #47d0bd;
+    color: white;
+}

@@ -9,14 +9,20 @@ var thirdOption = document.getElementById("option-three");
 var fourthOption = document.getElementById("option-four");
 var correct = document.getElementById("correct-answer");
 var endOfGame = document.getElementById("end-game");
+var finalScore = document.getElementById("final-score");
 var submitBtnEl = document.createElement("button");
 var initialsLabel = document.getElementById("initials");
+var highScoreOne = document.getElementById("high-score-1");
+var highScoreTwo = document.getElementById("high-score-2");
+var highScoreThree = document.getElementById("high-score-3");
 const lineBreak = document.createElement("br");
+
 
 var secondsLeft = 76;
 var questionCount = '';
 var questionIndex = 0;
 var timerInterval;
+var score;
 
 //An array of quiz questions that display to the page via a function
 const quizQuestions = [{
@@ -113,10 +119,13 @@ function endGame() {
     removeTimer();
     var removeQuestions = document.getElementById("question-and-answer");
     removeQuestions.remove();
+
     var score = secondsLeft;
-    endOfGame.textContent = "Your score is: " + score;
+    endOfGame.textContent = "Your score is: ";
+    finalScore.textContent = score;
     initialsLabel.textContent = "Game over! Enter your initials to save your score:";
     initialsLabel.appendChild(lineBreak);
+
     submitScore();
 }
 
@@ -125,6 +134,7 @@ function submitScore() {
     var textInputEl = document.createElement("input");
     var position = document.getElementsByTagName("label")[0];
     position.appendChild(textInputEl);
+    textInputEl.classList.add('initialInput');
     createSubmitBtn();
 }
 
@@ -170,10 +180,32 @@ function generateQuestions() {
 
 }
 
-//
-function saveScore(event) {
 
+function renderHighScores() {
+    var submittedInitials = localStorage.getItem("initials");
+    var savedScore = localStorage.getItem("score");
+
+    highScoreOne.textContent = submittedInitials + " , " + savedScore;
 }
+
+
+//Upon clicking the 'Submit Score' button, the user's score is saved and High scores are displayed.
+submitBtnEl.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    var userInitials = document.querySelector(".initialInput").value;
+
+    var yourScore = finalScore.textContent;
+
+    if (userInitials === "") {
+        alert("Error. Initials cannot be blank!");}
+        else {alert("Score submitted and initials saved!");}
+
+        localStorage.setItem("initials", userInitials);
+        localStorage.setItem("score", yourScore);
+
+renderHighScores();        
+ });
 
 
 
@@ -185,4 +217,3 @@ firstOption.addEventListener("click", clickResult);
 secondOption.addEventListener("click", clickResult);
 thirdOption.addEventListener("click", clickResult);
 fourthOption.addEventListener("click", clickResult);
-submitBtnEl.addEventListener("click", saveScore);
