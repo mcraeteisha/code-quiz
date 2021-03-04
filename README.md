@@ -1,5 +1,5 @@
 # code-quiz
-Test your coding knowledge with this timed Codin Quiz that was built using HTML, CSS, and JavaScript.
+Test your coding knowledge with this timed Coding Quiz that was built using HTML, CSS, and JavaScript.
 
 You'll start the Quiz with 75 seconds on the clock. For each wrong answer submitted, 10 seconds will be deducted from the timer. Your final score is the amount of time left on the clock once you've gone through all questions. At the end of the Quiz, you can submit your score and view a list of High Scores.
 
@@ -30,7 +30,7 @@ Some of the learnings I’m taking away from this project are:
 1. How to add line breaks to HTML pages uses JavaScript.
 2. A better understanding of timers built with JavaScript.
 3. With this project, I feel like JavaScript has become more familiar to me and I have a better understanding of what's happening when I read or think out JavaScript code. (Some concepts are still a little tricky for me—especially For Loops..)
-4. I tend to get excited when starting a new project and want to dive in and immediately start putting things on the page. But, I've found that stepping away from the computer and writing my code out by hand, and thinking about how a page to function has proven to be the better method of getting work done. 
+4. I tend to get excited when starting a new project and want to dive in and immediately start putting things on the page. But, I've found that stepping away from the computer and writing my code out by hand, and thinking about how I want a page to function has proven to be the better method of getting work done. 
 
 ## Future Application Updates
 
