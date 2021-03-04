@@ -24,3 +24,8 @@ hr {
     background-color: #47d0bd;
     color: white;
 }
+
+.custom-high-scores {
+    clear: both;
+    font-size: 22px;
+}

@@ -12,6 +12,7 @@ var endOfGame = document.getElementById("end-game");
 var finalScore = document.getElementById("final-score");
 var submitBtnEl = document.createElement("button");
 var initialsLabel = document.getElementById("initials");
+var highScoresList = document.getElementById("high-scores-list");
 var highScoreOne = document.getElementById("high-score-1");
 var highScoreTwo = document.getElementById("high-score-2");
 var highScoreThree = document.getElementById("high-score-3");
@@ -23,6 +24,12 @@ var questionCount = '';
 var questionIndex = 0;
 var timerInterval;
 var score;
+var submittedInitials;
+var yourScore;
+var scoreArray = [];
+if (JSON.parse(localStorage.getItem('scores')) !== null) {
+    scoreArray = JSON.parse(localStorage.getItem("scores"));
+}
 
 //An array of quiz questions that display to the page via a function
 const quizQuestions = [{
@@ -136,6 +143,7 @@ function submitScore() {
     position.appendChild(textInputEl);
     textInputEl.classList.add('initialInput');
     createSubmitBtn();
+    //newHighScore();
 }
 
 
@@ -185,8 +193,35 @@ function renderHighScores() {
     var submittedInitials = localStorage.getItem("initials");
     var savedScore = localStorage.getItem("score");
 
+    highScoresList.textContent = "High Scores";
+
     highScoreOne.textContent = submittedInitials + ": " + savedScore;
+
+    highScoreTwo.textContent = submittedInitials + ": " + savedScore;
+
+    highScoreThree.textContent = submittedInitials + ": " + savedScore;
+
+    highScoresList.appendChild(highScoreOne);
+    highScoresList.appendChild(highScoreTwo);
+    highScoresList.appendChild(highScoreThree);
+
+    function newHighScore() {
+        let initialsEl = submittedInitials;
+        let newHighScore = {
+            initials: initialsEl,
+            highScore: yourScore}
+    
+        console.log(newHighScore);
+        scoreArray.push(newHighScore);
+        console.log(scoreArray);
+        localStorage.setItem("scores",JSON.stringify(scoreArray));
+    }
+newHighScore();
 }
+
+
+
+
 
 
 //Upon clicking the 'Submit Score' button, the user's score is saved and High scores are displayed.
