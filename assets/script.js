@@ -185,7 +185,7 @@ function renderHighScores() {
     var submittedInitials = localStorage.getItem("initials");
     var savedScore = localStorage.getItem("score");
 
-    highScoreOne.textContent = submittedInitials + " , " + savedScore;
+    highScoreOne.textContent = submittedInitials + ": " + savedScore;
 }
 
 
